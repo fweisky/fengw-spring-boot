@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Feng Wei
  */
 @RestController
+@RequestMapping("hello")
 public class HelloController {
 
     /**
      * Hello
      * @return Hello World
      */
-    @RequestMapping("/hello")
+    @RequestMapping("/say")
     public String hello() {
         return "Hello World";
     }
