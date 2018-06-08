@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.fengw.springboot.mybatis.dao.MyBatisDao">
+
+    <select id="queryAll" resultType="org.fengw.springboot.mybatis.entity.Test1Entity">
+        select name, birthday, sex, money from t_test_1
+    </select>
+
+    <insert id="insert" parameterType="org.fengw.springboot.mybatis.entity.Test1Entity">
+        insert into t_test_1 (name, birthday, sex, money) values (#{name}, #{birthday}, #{sex}, #{money})
+    </insert>
+
+    <update id="update" parameterType="org.fengw.springboot.mybatis.entity.Test1Entity">
+        update t_test_1 set birthday=#{birthday}, sex=#{sex}, money=#{money} where name=#{name}
+    </update>
+
+</mapper>
