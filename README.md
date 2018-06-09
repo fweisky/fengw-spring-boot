@@ -10,3 +10,8 @@
         * @Delete
         * @Update
         * @Select
+    * 注解（Provider）方式（org.fengw.springboot.mybatis.provider）
+        * @InsertProvider
+        * @DeleteProvider
+        * @UpdateProvider
+        * @SelectProvider
