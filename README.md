@@ -5,3 +5,8 @@
 * Hello World（org.fengw.springboot.hello）
 * 集成MyBatis（org.fengw.springboot.mybatis）
     * XML配置方式（org.fengw.springboot.mybatis.xml）
+    * 注解方式（org.fengw.springboot.mybatis.annotation）
+        * @Insert
+        * @Delete
+        * @Update
+        * @Select
