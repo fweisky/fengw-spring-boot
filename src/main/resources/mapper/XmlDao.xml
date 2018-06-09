@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.fengw.springboot.mybatis.xml.dao.XmlDao">
+
+    <insert id="insert" parameterType="org.fengw.springboot.mybatis.entity.GoodsEntity">
+        insert into t_goods (name, buy_date, count, price) values (#{name}, #{buyDate}, #{count}, #{price})
+    </insert>
+
+    <update id="update" parameterType="org.fengw.springboot.mybatis.entity.GoodsEntity">
+        update t_goods set buy_date=#{buyDate}, count=#{count}, price=#{price} where name=#{name}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from t_goods where name=#{name}
+    </delete>
+
+    <select id="query" resultType="org.fengw.springboot.mybatis.entity.GoodsEntity">
+        select name, buy_date as buyDate, count, price from t_goods
+    </select>
+
+</mapper>
