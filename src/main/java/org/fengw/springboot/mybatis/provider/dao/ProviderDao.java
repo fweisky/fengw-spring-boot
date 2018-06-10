@@ -27,6 +27,13 @@ public interface ProviderDao {
     void delete(@Param("name") String name);
 
     /**
+     * 插入数据（动态SQL）
+     * @param entity
+     */
+    @InsertProvider(type = ProviderProvider.class, method = "dynamicInsertSql")
+    void dynamicInsert(@Param("goods") GoodsEntity entity);
+
+    /**
      * 插入数据
      * @param entity 商品信息
      */

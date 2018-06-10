@@ -26,6 +26,11 @@ public class ProviderServiceImpl implements IProviderService {
     }
 
     @Override
+    public void dynamicInsert(GoodsEntity entity) {
+        dao.dynamicInsert(entity);
+    }
+
+    @Override
     public void insert() {
         GoodsEntity entity = new GoodsEntity();
         entity.setName("fengW");

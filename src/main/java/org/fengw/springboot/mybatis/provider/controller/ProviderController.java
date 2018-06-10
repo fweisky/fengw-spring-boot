@@ -1,5 +1,7 @@
 package org.fengw.springboot.mybatis.provider.controller;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import org.fengw.springboot.mybatis.entity.GoodsEntity;
@@ -28,6 +30,35 @@ public class ProviderController {
     public String delete() {
         service.delete();
         return "delete";
+    }
+
+    /**
+     * 插入数据（动态SQL）
+     * @return 操作状态
+     */
+    @RequestMapping("dynamicInsert")
+    public String dynamicInsert() {
+
+        // 只插入name字段
+        GoodsEntity entity = new GoodsEntity();
+        entity.setName("fengW");
+        service.dynamicInsert(entity);
+
+        // 只插入buy_date字段
+        entity = new GoodsEntity();
+        entity.setBuyDate(new Date());
+        service.dynamicInsert(entity);
+
+        // 只插入count字段
+        entity = new GoodsEntity();
+        entity.setCount(7);
+        service.dynamicInsert(entity);
+
+        // 只插入price字段
+        entity = new GoodsEntity();
+        entity.setPrice(new BigDecimal("77777.77"));
+        service.dynamicInsert(entity);
+        return "dynamicInsert";
     }
 
     /**

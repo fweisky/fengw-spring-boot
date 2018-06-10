@@ -1,5 +1,10 @@
 package org.fengw.springboot.mybatis.provider.provider;
 
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.jdbc.SQL;
+import org.fengw.springboot.mybatis.entity.GoodsEntity;
+import org.springframework.util.StringUtils;
+
 /**
  * MyBatis的注解（Provider）方式
  *
@@ -12,7 +17,37 @@ public class ProviderProvider {
      * @return SQl语句
      */
     public String deleteSql() {
-        return "delete from t_goods where name=#{name}";
+        return new SQL() {{
+            DELETE_FROM("t_goods");
+            WHERE("name = #{name}");
+        }}.toString();
+    }
+
+    /**
+     * 插入数据（动态SQL）
+     * @param entity 商品表实体类
+     * @return SQL语句
+     */
+    public String dynamicInsertSql(@Param("goods") GoodsEntity entity) {
+        return new SQL() {{
+            INSERT_INTO("t_goods");
+
+            if (!StringUtils.isEmpty(entity.getName())) {
+                VALUES("name", "#{goods.name}");
+            }
+
+            if (!StringUtils.isEmpty(entity.getBuyDate())) {
+                VALUES("buy_date", "#{goods.buyDate}");
+            }
+
+            if (!StringUtils.isEmpty(entity.getCount())) {
+                VALUES("count", "#{goods.count}");
+            }
+
+            if (!StringUtils.isEmpty(entity.getPrice())) {
+                VALUES("price", "#{goods.price}");
+            }
+        }}.toString();
     }
 
     /**
@@ -20,12 +55,13 @@ public class ProviderProvider {
      * @return SQL语句
      */
     public String insertSql() {
-        StringBuilder sql = new StringBuilder();
-        sql.append(" insert into t_goods");
-        sql.append(" (name, buy_date, count, price)");
-        sql.append(" values");
-        sql.append(" (#{goods.name}, #{goods.buyDate}, #{goods.count}, #{goods.price})");
-        return sql.toString();
+        return new SQL() {{
+            INSERT_INTO("t_goods");
+            VALUES("name", "#{goods.name}");
+            VALUES("buy_date", "#{goods.buyDate}");
+            VALUES("count", "#{goods.count}");
+            VALUES("price", "#{goods.price}");
+        }}.toString();
     }
 
     /**
@@ -33,7 +69,10 @@ public class ProviderProvider {
      * @return SQL语句
      */
     public String querySql() {
-        return "select name, buy_date as buyDate, count, price from t_goods";
+        return new SQL() {{
+            SELECT("name, buy_date as buyDate, count, price");
+            FROM("t_goods");
+        }}.toString();
     }
 
     /**
@@ -41,10 +80,10 @@ public class ProviderProvider {
      * @return SQL语句
      */
     public String updateSql() {
-        StringBuilder sql = new StringBuilder();
-        sql.append(" update t_goods");
-        sql.append(" set buy_date=#{goods.buyDate}, count=#{goods.count}, price=#{goods.price}");
-        sql.append(" where name=#{goods.name}");
-        return sql.toString();
+        return new SQL() {{
+            UPDATE("t_goods");
+            SET("buy_date = #{goods.buyDate}, count = #{goods.count}, price = #{goods.price}");
+            WHERE("name = #{goods.name}");
+        }}.toString();
     }
 }

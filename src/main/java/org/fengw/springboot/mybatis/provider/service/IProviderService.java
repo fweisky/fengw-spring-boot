@@ -18,6 +18,12 @@ public interface IProviderService {
     void delete();
 
     /**
+     * 插入数据（动态SQL）
+     * @param entity 商品信息
+     */
+    void dynamicInsert(GoodsEntity entity);
+
+    /**
      * 插入数据
      * @param entity 商品信息
      */
