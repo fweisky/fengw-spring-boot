@@ -25,8 +25,8 @@ spring:
         maxOpenPreparedStatements: 20
         
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: org.fengw.springboot.mybatis.entity
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: org.fengw.springboot.mybatis.entity
 
 #pagehelper分页插件
 pagehelper:
