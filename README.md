@@ -16,3 +16,4 @@
         * @UpdateProvider
         * @SelectProvider
     * 动态SQL（org.fengw.springboot.mybatis.provider.controller.ProviderController#dynamicInsert）
+* 全局异常处理（org.fengw.springboot.globalexception）
