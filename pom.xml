@@ -6,8 +6,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.fengw.springboot</groupId>
     <artifactId>fengw-spring-boot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <version>1.0</version>
+    <packaging>pom</packaging>
     <name>fSpringBoot</name>
     <description>学习Spring Boot</description>
 
@@ -18,54 +18,24 @@
         <relativePath/>
     </parent>
 
+    <modules>
+        <module>fengw-hello</module>
+        <module>fengw-global-exception</module>
+        <module>fengw-mybatis</module>
+    </modules>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+
         <java.version>1.8</java.version>
-
-        <!-- MyBatis -->
-        <mybatis.version>1.3.2</mybatis.version>
-
-        <!-- 分页插件 -->
-        <pagehelper.version>1.2.5</pagehelper.version>
-
-        <!-- 阿里Druid数据库连接池 -->
-        <druid.version>1.1.10</druid.version>
-
+        <shiro.version>1.4.0</shiro.version>
     </properties>
 
     <dependencies>
-
-        <!-- 分页插件 -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>${pagehelper.version}</version>
-        </dependency>
-
-        <!-- 阿里Druid数据库连接池 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${druid.version}</version>
-        </dependency>
-
-        <!-- MySQL -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.38</version>
-        </dependency>
-
-        <!-- MyBatis -->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.version}</version>
-        </dependency>
 
         <!-- Spring Boot -->
         <dependency>
@@ -85,15 +55,6 @@
            <groupId>org.springframework.boot</groupId>
            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
