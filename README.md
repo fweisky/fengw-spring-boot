@@ -2,8 +2,8 @@
 已经学习完成的内容如下（持续更新中）
 
 ## 示例代码
-* fengw-hello：Hello World
-* fengw-mybatis：Spring Boot + MyBatis
+* **fengw-hello：Hello World**
+* **fengw-mybatis：Spring Boot + MyBatis**
     * XML方式（org.fengw.springboot.xml）
     * 注解方式（org.fengw.springboot.annotation）
         * @Insert
@@ -16,4 +16,4 @@
         * @UpdateProvider
         * @SelectProvider
     * 动态SQL（org.fengw.springboot.provider.controller.ProviderController#dynamicInsert）
-* fengw-global-exception：全局异常处理
+* **fengw-global-exception：全局异常处理**
